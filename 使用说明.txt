@@ -1,0 +1,69 @@
+﻿PowerShell 历史清理 v1.0.0  ·  绿色版 / Portable
+JimmyXiao  ·  https://github.com/JimmyXiao2026/pwsh-HistoryCleaner
+
+============================================================
+【简体中文】
+============================================================
+功能
+  · 每 5 分钟在后台检查 %APPDATA%\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+  · 黑名单：一行里只要“包含”关键字就命中；白名单：整行完全相同才命中
+  · 命中的行先列举，再判断是否整行命中白名单：命中就保留，否则整行删除（不留空行、不备份）
+  · 完全重复的命令只保留最后一条（例如历史里有 5 行 cls，只留最后那行 cls）
+  · 全程后台运行，不弹任何窗口
+
+使用
+  · 直接双击运行 PSHistoryCleaner.exe，配置界面固定尺寸，白名单/黑名单可无限增删，列表自带上滚动条
+  · 多次双击 exe 也只会有一个配置界面（第二实例会把已有界面唤到前台后自动退出）
+  · 配置保存在 %APPDATA%\PSHistoryCleaner\config.ini，日志在 %APPDATA%\PSHistoryCleaner\cleaner.log（超过 512KB 自动轮换为 .old）
+  · 界面左下角三个快捷键：创建开机自启动（写入 HKCU Run，参数 /hidden 静默启动）、在任务栏中显示（托盘图标）、创建开始目录快捷方式
+  · 命令行参数：/hidden 静默启动（只跑后台引擎，不出界面）；/checkonce 立刻检查一次后退出（不写配置界面）
+
+多语言
+  · 支持 简体中文 / 繁體中文 / English，首次按系统语言自动选择
+  · 标题栏右上角的语言按钮（显示“简中 / 繁體 / EN”）点击一次切到下一种语言，选择会记住
+
+卸载/清理
+  · 绿色版不写系统目录：退出程序、删除本文件夹即可
+  · 想彻底清干净，再删除 %APPDATA%\PSHistoryCleaner 文件夹；若曾开启开机自启动，删除注册表
+    HKCU\Software\Microsoft\Windows\CurrentVersion\Run 下的 PSHistoryCleaner 值
+
+============================================================
+【繁體中文】
+============================================================
+功能
+  · 每 5 分鐘於背景檢查 %APPDATA%\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+  · 黑名單：該行「包含」關鍵字即命中；白名單：整行完全相同才命中
+  · 命中後先列出，再判斷是否整行命中白名單：命中則保留，否則整行刪除（不留空行、不備份）
+  · 完全重複的指令只保留最後一條（例如歷史中有 5 行 cls，只留最後一行 cls）
+  · 全程背景執行，不彈出任何視窗
+
+使用
+  · 直接執行 PSHistoryCleaner.exe；設定視窗固定尺寸，白名單/黑名單可無限增刪，清單自帶捲軸
+  · 重複開啟 exe 也只會有一個設定視窗（第二個實例會把既有視窗帶到前景後結束）
+  · 設定存於 %APPDATA%\PSHistoryCleaner\config.ini，記錄存於 %APPDATA%\PSHistoryCleaner\cleaner.log
+  · 左下角三個快速鍵：建立開機自動啟動（HKCU Run，參數 /hidden）、在工作列中顯示、建立開始目錄捷徑
+  · 命令列參數：/hidden 靜默啟動；/checkonce 立即檢查一次後結束
+
+多語言
+  · 支援 简体中文 / 繁體中文 / English，首次依系統語言自動選擇；標題列右上角語言按鈕可切換並記住
+
+============================================================
+【English】
+============================================================
+What it does
+  · Every 5 minutes it checks %APPDATA%\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt in the background
+  · Blacklist: a line is matched if it CONTAINS the rule. Whitelist: the whole line must be identical
+  · Matched lines are listed first, then checked against the whitelist: kept if the whole line matches, otherwise the whole line is removed (no blank lines left, no backup)
+  · Fully duplicated commands are reduced to the last occurrence (e.g. five "cls" lines become one, the last one)
+  · Runs silently in the background, never opens a window
+
+Usage
+  · Just run PSHistoryCleaner.exe. Fixed-size window; white/black lists accept unlimited entries and scroll
+  · Launching the exe again never opens a second window - the existing one is brought to front
+  · Config: %APPDATA%\PSHistoryCleaner\config.ini   Log: %APPDATA%\PSHistoryCleaner\cleaner.log (rotated to .old above 512KB)
+  · Bottom-left shortcuts: enable auto-start (HKCU Run with /hidden), show tray icon, create Start menu shortcut
+  · Command line: /hidden = silent background start, /checkonce = run one check then exit
+
+Languages
+  · 简体中文 / 繁體中文 / English, picked automatically from the system language on first run
+  · The language button at the top-right of the title bar cycles to the next language and remembers it

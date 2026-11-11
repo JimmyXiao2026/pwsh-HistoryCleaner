@@ -1,0 +1,17 @@
+# 构建产物 / build output
+*.exe
+*.zip
+*.pdb
+*.log
+
+# 本地工作目录 / local scratch
+临时文件/
+发布/
+
+# 早期自制的图标（已废弃，改用 favicon.ico）
+app.ico
+app-icon-256.png
+
+# 编辑器
+.vs/
+.vscode/
